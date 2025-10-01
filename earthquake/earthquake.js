@@ -1,4 +1,3 @@
-
 var map = L.map('map').setView([38, -95], 4);
 
 // Base map
@@ -18,7 +17,7 @@ $.getJSON(earthquakeUrl, function(data) {
             var color = mag > 5 ? 'red' :
                         mag > 3 ? 'orange' :
                         mag > 1 ? 'yellow' : 'green';
-            var radius = mag * 4;
+            var radius = mag > 0 ? mag * 4: 2;
             return L.circleMarker(latlng, {
                 radius: radius,
                 fillColor: color,
